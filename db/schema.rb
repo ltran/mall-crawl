@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002181529) do
+ActiveRecord::Schema.define(version: 20151002182203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,5 +32,22 @@ ActiveRecord::Schema.define(version: 20151002181529) do
 
   add_index "crawls", ["centre_id"], name: "index_crawls_on_centre_id", using: :btree
 
+  create_table "highlights", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "store_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "highlights", ["store_id"], name: "index_highlights_on_store_id", using: :btree
+
+  create_table "stores", force: :cascade do |t|
+    t.string   "store_service_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   add_foreign_key "crawls", "centres"
+  add_foreign_key "highlights", "stores"
 end
