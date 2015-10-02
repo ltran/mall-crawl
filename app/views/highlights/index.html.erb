@@ -18,9 +18,9 @@
         <td><%= highlight.name %></td>
         <td><%= highlight.description %></td>
         <td><%= highlight.store %></td>
-        <td><%= link_to 'Show', highlight %></td>
-        <td><%= link_to 'Edit', edit_highlight_path(highlight) %></td>
-        <td><%= link_to 'Destroy', highlight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', crawl_store_highlight_path(@crawl, @store, highlight) %></td>
+        <td><%= link_to 'Edit', edit_crawl_store_highlight_path(@crawl, @store, highlight) %></td>
+        <td><%= link_to 'Destroy', crawl_store_highlight_path(@crawl, @store, highlight), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Highlight', new_highlight_path %>
+<%= link_to 'New Highlight', new_crawl_store_highlight_path(@crawl, @store) %>

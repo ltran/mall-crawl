@@ -1,10 +1,11 @@
 class StoresController < ApplicationController
+  before_action :set_crawl
   before_action :set_store, only: [:show, :edit, :update, :destroy]
 
   # GET /stores
   # GET /stores.json
   def index
-    @stores = Store.all
+    @stores = @crawl.stores.all
   end
 
   # GET /stores/1
@@ -14,7 +15,7 @@ class StoresController < ApplicationController
 
   # GET /stores/new
   def new
-    @store = Store.new
+    @store = @crawl.stores.build
   end
 
   # GET /stores/1/edit
@@ -24,15 +25,15 @@ class StoresController < ApplicationController
   # POST /stores
   # POST /stores.json
   def create
-    @store = Store.new(store_params)
+    @store = @crawl.stores.build(store_params)
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to @store, notice: 'Store was successfully created.' }
-        format.json { render :show, status: :created, location: @store }
+        format.html { redirect_to crawl_stores_path(@crawl), notice: 'Store was successfully created.' }
+        # format.json { render :show, status: :created, location: @store }
       else
         format.html { render :new }
-        format.json { render json: @store.errors, status: :unprocessable_entity }
+        # format.json { render json: @store.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -65,6 +66,10 @@ class StoresController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_store
       @store = Store.find(params[:id])
+    end
+
+    def set_crawl
+      @crawl = Crawl.find(params[:crawl_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

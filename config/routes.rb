@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  resources :highlights
-  resources :stores
-  resources :crawls
-  resources :centres
+  resources :centres do
+
+  end
+
+  resources :crawls do
+    resources :stores do
+      resources :highlights
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -14,9 +14,9 @@
     <% @stores.each do |store| %>
       <tr>
         <td><%= store.store_service_id %></td>
-        <td><%= link_to 'Show', store %></td>
-        <td><%= link_to 'Edit', edit_store_path(store) %></td>
-        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', crawl_store_path(@crawl, store) %></td>
+        <td><%= link_to 'Edit', edit_crawl_store_path(@crawl, store) %></td>
+        <td><%= link_to 'Destroy', crawl_store_path(@crawl, store), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Store', new_store_path %>
+<%= link_to 'New Store', new_crawl_store_path(@crawl) %>

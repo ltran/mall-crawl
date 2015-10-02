@@ -1,4 +1,5 @@
 class HighlightsController < ApplicationController
+  before_action :set_crawl_and_store
   before_action :set_highlight, only: [:show, :edit, :update, :destroy]
 
   # GET /highlights
@@ -28,8 +29,8 @@ class HighlightsController < ApplicationController
 
     respond_to do |format|
       if @highlight.save
-        format.html { redirect_to @highlight, notice: 'Highlight was successfully created.' }
-        format.json { render :show, status: :created, location: @highlight }
+        format.html { redirect_to crawl_store_highlights_path @crawl, @store, notice: 'Highlight was successfully created.' }
+        # format.json { render :show, status: :created, location: @highlight }
       else
         format.html { render :new }
         format.json { render json: @highlight.errors, status: :unprocessable_entity }
@@ -65,6 +66,11 @@ class HighlightsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_highlight
       @highlight = Highlight.find(params[:id])
+    end
+
+    def set_crawl_and_store
+      @crawl = Crawl.find(params[:crawl_id])
+      @store = @crawl.stores.find(params[:store_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

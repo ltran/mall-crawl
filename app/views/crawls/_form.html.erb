@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :centre_id %><br>
-    <%= f.text_field :centre_id %>
+    <%= f.collection_select(:centre_id, Centre.all, :id, :centre_id) %>
   </div>
   <div class="field">
     <%= f.label :name %><br>
