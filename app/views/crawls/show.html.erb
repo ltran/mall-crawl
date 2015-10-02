@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Centre:</strong>
+  <%= @crawl.centre %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @crawl.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @crawl.description %>
+</p>
+
+<%= link_to 'Edit', edit_crawl_path(@crawl) %> |
+<%= link_to 'Back', crawls_path %>
