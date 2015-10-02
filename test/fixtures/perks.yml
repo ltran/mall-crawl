@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  checked_in: false
+  store_id: 
+
+two:
+  description: MyText
+  checked_in: false
+  store_id: 
