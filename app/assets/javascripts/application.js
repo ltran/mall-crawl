@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-waypoints
+//= require bootstrap
 //= require turbolinks
 //= require_tree .

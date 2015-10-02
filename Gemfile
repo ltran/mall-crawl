@@ -34,7 +34,7 @@ gem 'httparty'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 source 'https://rails-assets.org' do
-  gem 'rails-assets-jquery-waypoints'
+  gem 'rails-assets-bootstrap'
 end
 
 group :development, :test do

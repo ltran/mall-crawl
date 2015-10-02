@@ -3,38 +3,3 @@
     <%= render partial: 'store_list_item', collection: @stores %>
   </ol>
 </aside>
-
-<div>
-  <%= render partial: 'crawl_stop', collection: @stores %>
-
-  <div id="wffooter">
-    <div class="waypoint" data-waypointer="6">
-      <a href="#" id="awp6" />
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    </div>
-  </div>
-</div>
-
-<script>
-  var setListItemState = function ($listItem) {
-    console.log('activating');
-    $listItem.addClass('active').siblings().removeClass('active');
-  };
-
-  $('#toc-points li')
-    .click(function () {
-      $('#' + this.id).trigger('click');
-      setListItemState($(this));
-    }
-  );
-
-  $('.waypoint').each(function() {
-    var waypoint = new Waypoint({
-      element: this,
-      handler: function (direction) {
-        setListItemState($("#wp" + this.element.dataset.waypointer));
-        console.log("#wp" + this.element.dataset.waypointer);
-      }
-    });
-  });
-</script
