@@ -6,8 +6,8 @@ module WestfieldApis
       @@requests ||= {}
     end
 
-    def url_for(path)
-      "https://api.westfield.io/#{path}"
+    def url_for(*fragments)
+      "https://api.westfield.io/#{fragments.join('/')}"
     end
 
     def fetch_centre_stores(centre_id)
@@ -18,11 +18,20 @@ module WestfieldApis
       fetch(url_for('stores'), query)
     end
 
+    def fetch_store(store_id)
+      fetch_resource(url_for('stores', store_id))
+    end
+
     def fetch_centres(query = {})
       fetch(url_for('centres'), query)
     end
 
-    def fetch(path, query)
+    def fetch_resource(path)
+      cache_key = "#{path}"
+      requests[cache_key] ||= HTTParty.get(path).parsed_response['data']
+    end
+
+    def fetch_collection(path, query = {})
       page = 1
       page_count = 1
       cache_key = "#{path}?#{query.to_param}"
