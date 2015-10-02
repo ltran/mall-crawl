@@ -5,7 +5,7 @@ class StoresController < ApplicationController
   # GET /stores
   # GET /stores.json
   def index
-    @stores = @crawl.stores.all
+    @stores = @crawl.stores.all.take(5)
   end
 
   # GET /stores/1
