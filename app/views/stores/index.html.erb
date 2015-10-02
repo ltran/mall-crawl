@@ -1,16 +1,17 @@
 <aside style="float: left; padding-left: 32px;">
   <ol id="toc-points">
-    <li id="wp1" class="active">ABERCROMBIE & FITCH</li>
-    <li id="wp2">ARITZIA</li>
-    <li id="wp3">BESPOKE COWORKING</li>
-    <li id="wp4">BURBERRY</li>
-    <li id="wp5">MAIDO</li>
+    <li id="wp1" class="active"><a href="#awp1">A&F</a></li>
+    <li id="wp2"><a href="#awp2">ARITZIA</a></li>
+    <li id="wp3"><a href="#awp3">BESPOKE COWORKING</a></li>
+    <li id="wp4"><a href="#awp4">BURBERRY</a></li>
+    <li id="wp5"><a href="#awp5">MAIDO</a></li>
   </ol>
 </aside>
 
 <div>
   <div class="waypoint" data-waypointer="1">
-    <img src="http://abduzeedo.com/files/originals/9/942fa71de716b9ba49ed97f921b4daeb.jpg" width="100%" height="600px" />
+    <a href="#" id="awp1" />
+    <img src="http://abduzeedo.com/files/originals/9/942fa71de716b9ba49ed97f921b4daeb.jpg" width="100%" max-height="600px" />
     <ul>
       <li>item 1</li>
       <li>item 2</li>
@@ -18,7 +19,8 @@
     </ul>
   </div>
   <div class="waypoint" data-waypointer="2">
-    <img src="http://www.spwallpapers.com/var/albums/960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854%20(004).jpg?m=1347171377" width="100%"  height="600px" />
+    <a href="#" id="awp2" />
+    <img src="http://www.spwallpapers.com/var/albums/960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854%20(004).jpg?m=1347171377" width="100%" max-height="600px" />
     <ul>
       <li>item 1</li>
       <li>item 2</li>
@@ -26,7 +28,8 @@
     </ul>
   </div>
   <div class="waypoint" data-waypointer="3">
-    <img src="http://www.wallpapermay.com/thumbnails/detail/20120609/sunsets%20landscapes%20nature%20trees%20streets%20bicycles%20photography%20mist%20roads%20tagnotallowedtoosubjective_www.wallpapermay.com_56.jpg" width="100%"  height="600px" />
+    <a href="#" id="awp3" />
+    <img src="http://www.wallpapermay.com/thumbnails/detail/20120609/sunsets%20landscapes%20nature%20trees%20streets%20bicycles%20photography%20mist%20roads%20tagnotallowedtoosubjective_www.wallpapermay.com_56.jpg" width="100%" max-height="600px" />
     <ul>
       <li>item 1</li>
       <li>item 2</li>
@@ -34,7 +37,8 @@
     </ul>
   </div>
   <div class="waypoint" data-waypointer="4">
-    <img src="http://www.spwallpapers.com/var/albums/960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854%20(004).jpg?m=1347171377" width="100%"  height="600px" />
+    <a href="#" id="awp4" />
+    <img src="http://www.spwallpapers.com/var/albums/960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854%20(004).jpg?m=1347171377" width="100%" max-height="600px" />
     <ul>
       <li>item 1</li>
       <li>item 2</li>
@@ -42,7 +46,8 @@
     </ul>
   </div>
   <div class="waypoint" data-waypointer="5">
-    <img src="http://www.spwallpapers.com/var/albums/960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854%20(004).jpg?m=1347171377" width="100%"  height="600px" />
+    <a href="#" id="awp5" />
+    <img src="http://www.spwallpapers.com/var/albums/960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854%20(004).jpg?m=1347171377" width="100%" max-height="600px" />
     <ul>
       <li>item 1</li>
       <li>item 2</li>
@@ -51,9 +56,13 @@
   </div>
 
   <div id="wffooter">
-    WESTFIELD FOOTER
+    <div class="waypoint" data-waypointer="6">
+      <a href="#" id="awp6" />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>
   </div>
 </div>
+
 <script>
   var setListItemState = function ($listItem) {
     console.log('activating');
@@ -62,6 +71,7 @@
 
   $('#toc-points li')
     .click(function () {
+      $('#' + this.id).trigger('click');
       setListItemState($(this));
     }
   );

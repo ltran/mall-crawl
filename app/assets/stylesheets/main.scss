@@ -11,6 +11,19 @@ body {
   margin-top: 0.7500em;
   margin-bottom: 0.0000em;
 }
+
+a {
+  color: black;
+  &::active {
+    color: black;
+  }
+  &::visited {
+    color: black;
+  }
+
+}
 #wffooter {
   padding-bottom: 300px;
+  color: white;
+  background-color: black;
 }
