@@ -1,27 +1,78 @@
-<p id="notice"><%= notice %></p>
+<aside style="float: left; padding-left: 32px;">
+  <ol id="toc-points">
+    <li id="wp1" class="active">ABERCROMBIE & FITCH</li>
+    <li id="wp2">ARITZIA</li>
+    <li id="wp3">BESPOKE COWORKING</li>
+    <li id="wp4">BURBERRY</li>
+    <li id="wp5">MAIDO</li>
+  </ol>
+</aside>
 
-<h1>Listing Stores</h1>
+<div>
+  <div class="waypoint" data-waypointer="1">
+    <img src="http://abduzeedo.com/files/originals/9/942fa71de716b9ba49ed97f921b4daeb.jpg" width="100%" height="600px" />
+    <ul>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ul>
+  </div>
+  <div class="waypoint" data-waypointer="2">
+    <img src="http://www.spwallpapers.com/var/albums/960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854%20(004).jpg?m=1347171377" width="100%"  height="600px" />
+    <ul>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ul>
+  </div>
+  <div class="waypoint" data-waypointer="3">
+    <img src="http://www.wallpapermay.com/thumbnails/detail/20120609/sunsets%20landscapes%20nature%20trees%20streets%20bicycles%20photography%20mist%20roads%20tagnotallowedtoosubjective_www.wallpapermay.com_56.jpg" width="100%"  height="600px" />
+    <ul>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ul>
+  </div>
+  <div class="waypoint" data-waypointer="4">
+    <img src="http://www.spwallpapers.com/var/albums/960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854%20(004).jpg?m=1347171377" width="100%"  height="600px" />
+    <ul>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ul>
+  </div>
+  <div class="waypoint" data-waypointer="5">
+    <img src="http://www.spwallpapers.com/var/albums/960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854/Beautiful%20landscapes%20of%20lakes%20and%20reservoirs%20wallpapers%20960x854%20(004).jpg?m=1347171377" width="100%"  height="600px" />
+    <ul>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ul>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Store service</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div id="wffooter">
+    WESTFIELD FOOTER
+  </div>
+</div>
+<script>
+  var setListItemState = function ($listItem) {
+    console.log('activating');
+    $listItem.addClass('active').siblings().removeClass('active');
+  };
 
-  <tbody>
-    <% @stores.each do |store| %>
-      <tr>
-        <td><%= store.store_service_id %></td>
-        <td><%= link_to 'Show', crawl_store_path(@crawl, store) %></td>
-        <td><%= link_to 'Edit', edit_crawl_store_path(@crawl, store) %></td>
-        <td><%= link_to 'Destroy', crawl_store_path(@crawl, store), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  $('#toc-points li')
+    .click(function () {
+      setListItemState($(this));
+    }
+  );
 
-<br>
-
-<%= link_to 'New Store', new_crawl_store_path(@crawl) %>
+  $('.waypoint').each(function() {
+    var waypoint = new Waypoint({
+      element: this,
+      handler: function (direction) {
+        setListItemState($("#wp" + this.element.dataset.waypointer));
+        console.log("#wp" + this.element.dataset.waypointer);
+      }
+    });
+  });
+</script
