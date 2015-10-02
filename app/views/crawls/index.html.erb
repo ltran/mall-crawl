@@ -15,7 +15,7 @@
   <tbody>
     <% @crawls.each do |crawl| %>
       <tr>
-        <td><%= crawl.centre %></td>
+        <td><%= crawl.centre.centre_id %></td>
         <td><%= crawl.name %></td>
         <td><%= crawl.description %></td>
         <td><%= link_to 'Show', crawl %></td>

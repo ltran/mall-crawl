@@ -4,7 +4,7 @@ class CrawlsController < ApplicationController
   # GET /crawls
   # GET /crawls.json
   def index
-    @crawls = Crawl.all
+    @crawls = Crawl.all.includes(:centre)
   end
 
   # GET /crawls/1

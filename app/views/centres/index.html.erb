@@ -14,7 +14,7 @@
     <% @centres.each do |centre| %>
       <tr>
         <td><%= centre.centre_id %></td>
-        <td><%= link_to 'Show', centre %></td>
+        <td><%= link_to 'Show', crawls_path(centre) %></td>
         <td><%= link_to 'Edit', edit_centre_path(centre) %></td>
         <td><%= link_to 'Destroy', centre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
