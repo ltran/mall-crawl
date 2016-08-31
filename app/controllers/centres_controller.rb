@@ -4,6 +4,7 @@ class CentresController < ApplicationController
   # GET /centres
   # GET /centres.json
   def index
+    WHAT= [1,2,3,4]
     @centres = Centre.all
   end
 
@@ -28,7 +29,13 @@ class CentresController < ApplicationController
 
     respond_to do |format|
       if @centre.save
-        format.html { redirect_to @centre, notice: 'Centre was successfully created.' }
+        format.html {
+          
+          redirect_to @centre, notice: 'Centre was successfully created.' 
+        
+        
+        array = 55555555
+        }
         format.json { render :show, status: :created, location: @centre }
       else
         format.html { render :new }
