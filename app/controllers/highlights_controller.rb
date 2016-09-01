@@ -4,6 +4,8 @@ class HighlightsController < ApplicationController
 
 
 
+bbb=[]
+
   aaaaa= []
   # GET /highlights
   # GET /highlights.json
